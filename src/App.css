@@ -1,5 +1,21 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;   /* Align children vertically */
+  align-items: center;      /* Center horizontally */
+  justify-content: center;  /* Center vertically */
+  height: 100vh;            /* Full screen height */
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.App.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+.App.light {
+  background-color: #f4f4f4;
+  color: #222;
 }
 
 .App-logo {
@@ -35,4 +51,112 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  color: #333;
+}
+
+.form-label {
+  font-size: 18px;
+  margin-right: 10px; /* Spacing between label and dropdown */
+}
+
+.file-type-select {
+  padding: 10px 15px; /* Padding inside the select box */
+  font-size: 16px;
+  border-radius: 12px; /* Rounded corners */
+  border: 1px solid #ccc; /* Light border */
+  margin-top: 10px; /* Adds some spacing above the select */
+  outline: none;
+  transition: all 0.3s ease; /* Smooth transition for focus effects */
+}
+
+.file-type-select:focus {
+  border-color: #007bff; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow on focus */
+}
+
+.file-upload-area {
+  width: 100%; /* Make it full width */
+  height: 300px; /* Adjust height to make it bigger */
+  border: 2px dashed #007bff; /* Add a dashed border to make it visually distinct */
+  border-radius: 10px; /* Round the corners */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background-color: #f7f7f7; /* Light background color */
+  cursor: pointer; /* Change the cursor to indicate it's clickable */
+  margin-top: 20px;
+}
+
+.file-upload-area:hover {
+  background-color: #e0e0e0; /* Darker background when hovering */
+}
+
+.file-input {
+  display: none; /* Hide the default file input button */
+}
+
+.file-upload-area.drag-over {
+  background-color: #d0ebff; /* Light blue on drag */
+  border-color: #339af0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0;            /* Light text */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Switch styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 26px;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px; width: 20px;
+  left: 3px; bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: #2196f3;
+}
+input:checked + .slider:before {
+  transform: translateX(24px);
 }
