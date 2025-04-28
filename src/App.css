@@ -1,32 +1,17 @@
+/* General Styles for the App */
 .App {
   display: flex;
-  flex-direction: column;   /* Align children vertically */
-  align-items: center;      /* Center horizontally */
-  justify-content: center;  /* Center vertically */
-  height: 100vh;            /* Full screen height */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
   padding: 20px;
-}
-
-.App.dark {
-  background-color: #121212;
-  color: #e0e0e0;
-}
-.App.light {
-  background-color: #f4f4f4;
-  color: #222;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -40,90 +25,101 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 h1 {
-  color: #333;
+  color: #333; /* Default color for light mode */
 }
 
+/* Styles for labels */
 .form-label {
-  font-size: 18px;
-  margin-right: 10px; /* Spacing between label and dropdown */
+  color: #333; /* Default color for light mode */
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
-.file-type-select {
-  padding: 10px 15px; /* Padding inside the select box */
-  font-size: 16px;
-  border-radius: 12px; /* Rounded corners */
-  border: 1px solid #ccc; /* Light border */
-  margin-top: 10px; /* Adds some spacing above the select */
-  outline: none;
-  transition: all 0.3s ease; /* Smooth transition for focus effects */
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
 }
 
-.file-type-select:focus {
-  border-color: #007bff; /* Blue border on focus */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow on focus */
+.dark-mode h1 {
+  color: #e0e0e0; /* Light text for h1 in dark mode */
 }
 
+/* Dark Mode label styles */
+.dark-mode .form-label {
+  color: #ffffff; /* White text for labels in dark mode */
+}
+
+/* Select menu styles */
+select {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.dark-mode select {
+  background-color: #333;
+  color: #e0e0e0; /* Light text for select options in dark mode */
+  border: 1px solid #555;
+}
+
+/* File Upload Area */
 .file-upload-area {
-  width: 100%; /* Make it full width */
-  height: 300px; /* Adjust height to make it bigger */
-  border: 2px dashed #007bff; /* Add a dashed border to make it visually distinct */
-  border-radius: 10px; /* Round the corners */
+  width: 60%; /* Adjust width to match the h1 element */
+  height: 300px;
+  border: 2px dashed #007bff;
+  border-radius: 10px;
   display: flex;
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  background-color: #f7f7f7; /* Light background color */
-  cursor: pointer; /* Change the cursor to indicate it's clickable */
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  cursor: pointer;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .file-upload-area:hover {
-  background-color: #e0e0e0; /* Darker background when hovering */
+  background-color: #e0e0e0;
 }
 
 .file-input {
-  display: none; /* Hide the default file input button */
+  display: none;
 }
 
 .file-upload-area.drag-over {
-  background-color: #d0ebff; /* Light blue on drag */
+  background-color: #d0ebff;
   border-color: #339af0;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #121212; /* Dark background */
-  color: #e0e0e0;            /* Light text */
+.dark-mode .file-upload-area {
+  background-color: #333;
+  border: 2px dashed #888;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.dark-mode .file-upload-area:hover {
+  background-color: #444;
 }
 
+/* Dark Mode Toggle Button */
 .dark-mode-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
+  z-index: 100;
 }
 
-/* Switch styling */
+/* Toggle Switch Styling */
 .switch {
   position: relative;
   display: inline-block;
@@ -136,27 +132,120 @@ body {
   width: 0;
   height: 0;
 }
+
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0; left: 0;
-  right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #ccc;
   border-radius: 26px;
   transition: 0.4s;
 }
+
 .slider:before {
   position: absolute;
   content: "";
-  height: 20px; width: 20px;
-  left: 3px; bottom: 3px;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
   background-color: white;
   border-radius: 50%;
   transition: 0.4s;
 }
+
 input:checked + .slider {
   background-color: #2196f3;
 }
+
 input:checked + .slider:before {
   transform: translateX(24px);
+}
+
+.submit-btn {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease; /* Smooth transition */
+}
+
+/* Active state (when button is clicked) */
+.submit-btn:active {
+  transform: translateY(4px); /* Moves the button down to make it look pressed */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds a shadow for the recessed effect */
+}
+
+/* Hover state (when hovering over the button) */
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  display: none;  /* Initially hidden */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  margin-top: 10px;
+}
+
+.error-message.show {
+  display: block;  /* Show the error message */
+  opacity: 1;  /* Fade in effect */
+}
+
+.processing-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the box */
+  width: 300px; /* Set a fixed width for the modal */
+  padding: 20px;
+  background-color: #ffffff; /* Solid opaque gray background */
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Dark mode styling */
+.processing-modal-dark {
+  background-color: #555; /* Slightly lighter gray for dark mode */
+  color: white; /* Light text */
+}
+
+/* Spinner styles */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3); /* Light color border with transparency */
+  border-top: 4px solid #3498db; /* Blue color for spinner */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px; /* Space between spinner and text */
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.processing-modal p {
+  font-size: 16px;
+  font-weight: bold;
+  color: inherit; /* Ensure color matches theme */
+  margin: 0;
 }
