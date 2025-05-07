@@ -249,3 +249,67 @@ input:checked + .slider:before {
   color: inherit; /* Ensure color matches theme */
   margin: 0;
 }
+
+.message-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.message-content {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.message-content h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.message-content p {
+  font-size: 1.25rem;
+}
+
+.back-button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background-color: #007bff; /* Blue button */
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.dark-mode .back-button {
+  background-color: #555; /* Darker button for dark mode */
+}
+
+.dark-mode .back-button:hover {
+  background-color: #333;
+}

@@ -1,17 +1,15 @@
-// MessageScreen.js
 import React from 'react';
 
-const MessageScreen = ({ message, isError, onBackClick, darkMode }) => {
+const MessageScreen = ({ title, message, onBackClick, darkMode }) => {
   return (
     <div className={`message-screen ${darkMode ? 'dark-mode' : ''}`}>
-      <button className="back-button" onClick={onBackClick}>
-        ← Back
-      </button>
-      <div className="message-content">
-        <p className={isError ? 'error-text' : 'success-text'}>
-          {message}
-        </p>
+      <div className="back-button-container">
+        <button className="back-button" onClick={onBackClick}>
+          ← Back
+        </button>
       </div>
+      <h1>{title}</h1>
+      <p>{message}</p>
     </div>
   );
 };
